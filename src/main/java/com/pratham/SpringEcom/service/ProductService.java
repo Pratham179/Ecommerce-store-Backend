@@ -23,7 +23,7 @@ public class ProductService {
         return productRepo.findById(id).orElse(null);
     }
 
-    public Product addProduct(Product product, MultipartFile image) throws IOException {
+    public Product addOrUpdateProduct(Product product, MultipartFile image) throws IOException {
 
         product.setImageName(image.getOriginalFilename());
         product.setImageType(image.getContentType());
@@ -31,4 +31,6 @@ public class ProductService {
 
         return productRepo.save(product);
     }
+
+
 }
